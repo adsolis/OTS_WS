@@ -1,0 +1,60 @@
+# Compilados
+*.class
+target/**
+target-eclipse/**
+bin/
+out/
+build/
+war/WEB-INF/classes
+
+# Empaquetados
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs
+*.log
+
+# Eclipse
+.classpath
+.project
+.settings
+.settings/**
+.apt_src
+.apt_generated
+.metadata
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.launch
+*.userlibraries
+
+#Intellij IDEA
+*.iml
+*.ipr
+*.iws
+*.ids
+.idea
+
+# Mac OS X
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+#Otros
+.svn
+.gradle
+/.apt_generated

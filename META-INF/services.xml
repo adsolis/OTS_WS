@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+	<service name="BO_CU001">
+		<Description> Web Service del CU001
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.BO_CU001
+		</parameter>
+	</service>
+	<service name="Utils">
+		<Description> Web Service de Utilerías
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.Utils</parameter>
+	</service>
+	<service name="RutasController">
+		<Description> Web service operaciones de Rutas</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.RutasController
+		</parameter>
+		<operation name="getRutasExistentes" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="getRutasPorLDC" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+
+	<service name="CampaniaController">
+		<Description>Web service para operaciones de las campañas
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.CampaniaController
+		</parameter>
+		<operation name="getCampanias" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="ZonaController">
+		<Description>Web service para operaciones con la zonas</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ZonaController
+		</parameter>
+		<operation name="getZonas" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+	<service name="RecepcionAjustesReacoController">
+		<Description> Web Service de Recepción de Ajustes
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.RecepcionAjustesReacoController
+		</parameter>
+	</service>
+	<service name="RecepcionVeasController">
+		<Description>Web service para operaciones de recepcion de ventas
+			anticipadas
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.RecepcionVeasController
+		</parameter>
+		<operation name="insertarRecepcionVeas" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="insertarRecepcionVeaDetalle" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="MantenimientoElementoController">
+		<Description> Web service operaciones de Catalogos</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.MantenimientoElementoController
+		</parameter>
+	</service>
+
+	<service name="ImprimirCodigosBarrasController">
+		<Description> Web service operaciones de la generación de Códigos de
+			Barras
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ImprimirCodigosBarrasController
+		</parameter>
+	</service>
+
+	<service name="CierreZona">
+		<Description> Web service retorna tabla de cierre de zona
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.CierreZonaController
+		</parameter>
+		<operation name="getCierreZona" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ActualizaItem" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="EntregaVentanilla">
+		<Description> Web service para la funcionalidad de entrega en
+			ventanilla
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.EntregaVentanillaController
+		</parameter>
+		<operation name="getTipoPago" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="getBancos" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="getPersonaRecibe" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="getOrdenesRepresentante" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="getRepresentantes" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="getDetalleOrden" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="getDetallePago" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+	<service name="RepresentanteController">
+		<Description>Web service para operaciones de recepcion de ventas
+			anticipadas
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.RepresentanteController
+		</parameter>
+		<operation name="obtenerRepresentantesSinRutaAsignada" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="actualizarPreenrutadoDeRepresentante" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="seleccionarRepresentantesConOrden" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="actualizarSecuenciaRepresentante" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+	<service name="ConsultarCatalogosController">
+		<Description>Web service para operaciones de consultar catalogos
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ConsultarCatalogosController
+		</parameter>
+	</service>
+	<service name="SubBodegaAlmacenController">
+		<Description>Web service para operaciones de SubBodegasAlmacen
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.SubBodegaAlmacenController
+		</parameter>
+	</service>
+	<service name="LiquidacionSubBodegaController">
+		<Description>Web service para operaciones de Liquidación de SubBodegas
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.LiquidacionSubBodegaController
+		</parameter>
+	</service>
+	<service name="ReportesController">
+		<Description> Web service retorna datos de cada uno de los reportes
+			del sistema
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ReportesController
+		</parameter>
+	</service>
+	<service name="ReporteConsultaEstatusOrdenesController">
+		<Description> Web service retorna datos para el reporte de consulta de
+			estatus de ordenes
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ReporteConsultaEstatusOrdenesController
+		</parameter>
+	</service>
+	<service name="ReporteRecoleccionRemitosController">
+		<Description> Web service retorna datos para el reporte de recoleccion
+			de remitos
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ReporteRecoleccionRemitosController
+		</parameter>
+	</service>
+	<service name="ReporteItemsNoEscaneadosController">
+		<Description> Web service retorna datos para el reporte de items no escaneados
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ReporteItemsNoEscaneadosController
+		</parameter>
+	</service>
+	<service name="ReporteItemsFaltantesController">
+		<Description> Web service retorna datos para el reporte de recoleccion
+			de remitos
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ReporteItemsFaltantesController
+		</parameter>
+	</service>
+	<service name="ReporteDomiciliosIncorrectosController">
+		<Description> Web service retorna datos para el reporte de recoleccion
+			de remitos
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ReporteDomiciliosIncorrectosController
+		</parameter>
+	</service>
+	<service name="ReporteConsultaBuenVecinoController">
+		<Description> Web service retorna datos para el reporte de consulta de
+			buen vecino
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ReporteConsultaBuenVecinoController
+		</parameter>
+	</service>
+	<service name="ArmadoRutasEspecialesController">
+		<Description> Web service retorna datos para el armado de rutas
+			especiales
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ArmadoRutasEspecialesController
+		</parameter>
+	</service>
+	<service name="MenuController">
+		<Description> Web service retorna modulos y acciones por usuario
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.MenuController
+		</parameter>
+	</service>
+	<service name="CorreoController">
+		<Description> Web service para la utileria de correo
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.Correo
+		</parameter>
+	</service>
+
+	<service name="ActualizacionCatalogos">
+		<Description>Web service para actualizar catalogos desde SOS
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ActualizacionCatalogos
+		</parameter>
+		<operation name="realizarActualizacionCatalogo" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="ActualizacionCatalogosDesdeArchivo">
+		<Description>Web service para actualizar catalogos desde SOS
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ActualizacionCatalogosDesdeArchivo
+		</parameter>
+		<operation name="iniciarActualizacionViaMonitoreo" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="PrimeraSegundaLiquidacionController">
+		<Description> Web service para el envío de Primera y Segunda
+			Liquidación
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.PrimeraSegundaLiquidacionController
+		</parameter>
+		<operation name="ejecutarReversionOrdenes" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+	
+	<service name="EntregaVentanillaMasiva">
+		<Description>Web service para la funcionalidad de entrega en
+			ventanilla masiva
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.EntregaVentanillaMasivaController
+		</parameter>
+		<operation name="ObtenerCampania" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ObtenerOrdenesRepresentante" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ObtenerDetalleOrden" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ActualizaEntregaVentanilla" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ObtenerRepresentantes" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+
+	</service>
+	<service name="LiquidacionVentanillaMasiva">
+		<Description>Web service para la funcionalidad de entrega en
+			ventanilla masiva
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.LiquidacionVentanillaMasivaController
+		</parameter>
+		<operation name="ObtenerTipoPagos" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ObtenerBancos" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ObtenerQuienRecibe" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ObtenerOrdenes" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="ObtenerPagos" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+
+	</service>
+
+	<service name="LiquidacionRepartoWeb">
+		<Description>Liquidacion Reparto Web</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.LiquidacionRepartoWebController
+		</parameter>
+		<operation name="obtenerListaCampanias" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="obtenerListaZonas" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="NotificacionesAutomaticas">
+		<Description>Notificaciones Automaticas</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.NotificacionesAutomaticasController
+		</parameter>
+		<operation name="obtenerNotificacionesVencidas" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="NotificacionesCorreo">
+		<Description>Notificaciones Correo</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.NotificacionesCorreoController
+		</parameter>
+		<operation name="obtenerNotificacionesVencidas" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="EntregaFaltantes">
+		<Description>Entrega de items faltantes de entrega</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.EntregaFaltantesController
+		</parameter>
+		<operation name="buscarRepresentante" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+
+	<service name="RecolectarRemitosVentanilla">
+		<Description>Recolectar Remitos en Ventanilla</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.RecolectarRemitosVentanillaController
+		</parameter>
+		<operation name="obtenerRepresentantes" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
+</serviceGroup>
