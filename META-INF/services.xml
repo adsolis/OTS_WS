@@ -263,6 +263,17 @@
 		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ArmadoRutasEspecialesController
 		</parameter>
 	</service>
+	<service name="ArmadoRutasEspecialesRemitosController">
+		<Description> Web service retorna datos para el armado de rutas
+			especiales remitos
+		</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.ArmadoRutasRemitosController
+		</parameter>
+	</service>
 	<service name="MenuController">
 		<Description> Web service retorna modulos y acciones por usuario
 		</Description>
