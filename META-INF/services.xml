@@ -422,4 +422,20 @@
 		</parameter>
 		<operation name="obtenerRepresentantes" mep="http://www.w3.org/2004/08/wsdl/in-out" />
 	</service>
+	
+	<service name="OrdenesDejadasRecolectadas">
+		<Description>Ordenes Dejadas y Recolectadas en PUP</Description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.datacode.avon_ots_ws.OrdenesDejadasRecolectadas
+		</parameter>
+		<operation name="obtenerListaLiquidacionesMail" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="actualizarStatusLiquidacionesMail" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="obtenerPUPOrdenesDejadasRecolectadas" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="obtenerCajasOrdenDejadaRecolectada" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="obtenerPremiosUnitariosOrdenDejadaRecolectada" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+		<operation name="obtenerDocumentosOrdenDejadaRecolectada" mep="http://www.w3.org/2004/08/wsdl/in-out" />
+	</service>
 </serviceGroup>
