@@ -7,7 +7,6 @@ public class PremioUnitarioOrdenDejadaRecolectadaPUPDTO {
 	private Integer cantidad;
 	private Integer dejadoPUP;
 	private Integer recolectadoPUP;
-	private Integer cantidadStatus;
 
 	public String getFsc() {
 		return fsc;
@@ -39,11 +38,4 @@ public class PremioUnitarioOrdenDejadaRecolectadaPUPDTO {
 	public void setRecolectadoPUP(Integer recolectadoPUP) {
 		this.recolectadoPUP = recolectadoPUP;
 	}
-	public Integer getCantidadStatus() {
-		return cantidadStatus;
-	}
-	public void setCantidadStatus(Integer cantidadStatus) {
-		this.cantidadStatus = cantidadStatus;
-	}
-	
 }
