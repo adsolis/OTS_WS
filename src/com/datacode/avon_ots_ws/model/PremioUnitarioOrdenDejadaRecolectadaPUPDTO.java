@@ -2,10 +2,12 @@ package com.datacode.avon_ots_ws.model;
 
 public class PremioUnitarioOrdenDejadaRecolectadaPUPDTO {
 
-	String fsc;
-	String ean13;
-	Integer cantidad;
-	Integer cantidadStatus;
+	private String fsc;
+	private String ean13;
+	private Integer cantidad;
+	private Integer dejadoPUP;
+	private Integer recolectadoPUP;
+	private Integer cantidadStatus;
 
 	public String getFsc() {
 		return fsc;
@@ -24,6 +26,18 @@ public class PremioUnitarioOrdenDejadaRecolectadaPUPDTO {
 	}
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
+	}
+	public Integer getDejadoPUP() {
+		return dejadoPUP;
+	}
+	public void setDejadoPUP(Integer dejadoPUP) {
+		this.dejadoPUP = dejadoPUP;
+	}
+	public Integer getRecolectadoPUP() {
+		return recolectadoPUP;
+	}
+	public void setRecolectadoPUP(Integer recolectadoPUP) {
+		this.recolectadoPUP = recolectadoPUP;
 	}
 	public Integer getCantidadStatus() {
 		return cantidadStatus;

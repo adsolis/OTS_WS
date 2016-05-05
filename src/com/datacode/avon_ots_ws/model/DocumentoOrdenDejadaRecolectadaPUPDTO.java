@@ -2,11 +2,13 @@ package com.datacode.avon_ots_ws.model;
 
 public class DocumentoOrdenDejadaRecolectadaPUPDTO {
 
-	Long registro;
-	Integer codEnviado;
-	Integer codRecibido;
-	Integer remitoEnviado;
-	Integer remitoRecibido;
+	private Long registro;
+	private Integer codEnviado;
+	private Integer codRecibido;
+	private Integer codRecolectado;
+	private Integer remitoEnviado;
+	private Integer remitoRecibido;
+	private Integer remitoRecolectado;
 
 	public Long getRegistro() {
 		return registro;
@@ -26,6 +28,12 @@ public class DocumentoOrdenDejadaRecolectadaPUPDTO {
 	public void setCodRecibido(Integer codRecibido) {
 		this.codRecibido = codRecibido;
 	}
+	public Integer getCodRecolectado() {
+		return codRecolectado;
+	}
+	public void setCodRecolectado(Integer codRecolectado) {
+		this.codRecolectado = codRecolectado;
+	}
 	public Integer getRemitoEnviado() {
 		return remitoEnviado;
 	}
@@ -37,6 +45,12 @@ public class DocumentoOrdenDejadaRecolectadaPUPDTO {
 	}
 	public void setRemitoRecibido(Integer remitoRecibido) {
 		this.remitoRecibido = remitoRecibido;
+	}
+	public Integer getRemitoRecolectado() {
+		return remitoRecolectado;
+	}
+	public void setRemitoRecolectado(Integer remitoRecolectado) {
+		this.remitoRecolectado = remitoRecolectado;
 	}
 	
 }

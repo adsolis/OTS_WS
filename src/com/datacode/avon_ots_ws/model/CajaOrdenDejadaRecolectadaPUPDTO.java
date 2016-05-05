@@ -2,13 +2,15 @@ package com.datacode.avon_ots_ws.model;
 
 public class CajaOrdenDejadaRecolectadaPUPDTO {
 
-	Integer zona;
-	String campania;
-	Long orden;
-	Long registro;
-	String item;
-	String codigoBarras;
-	Integer dejadoPUP;
+	private Integer zona;
+	private String campania;
+	private Long orden;
+	private String nombre;
+	private Long registro;
+	private String item;
+	private String codigoBarras;
+	private Integer dejadoPUP;
+	private Integer recolectadoPUP;
 
 	public Integer getZona() {
 		return zona;
@@ -27,6 +29,12 @@ public class CajaOrdenDejadaRecolectadaPUPDTO {
 	}
 	public void setOrden(Long orden) {
 		this.orden = orden;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	public Long getRegistro() {
 		return registro;
@@ -51,6 +59,12 @@ public class CajaOrdenDejadaRecolectadaPUPDTO {
 	}
 	public void setDejadoPUP(Integer dejadoPUP) {
 		this.dejadoPUP = dejadoPUP;
+	}
+	public Integer getRecolectadoPUP() {
+		return recolectadoPUP;
+	}
+	public void setRecolectadoPUP(Integer recolectadoPUP) {
+		this.recolectadoPUP = recolectadoPUP;
 	}
 	
 }
