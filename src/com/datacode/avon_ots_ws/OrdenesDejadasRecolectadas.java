@@ -206,7 +206,6 @@ public class OrdenesDejadasRecolectadas {
 					rodrpup.setCantidad(resultSet.getInt("CANTIDAD"));
 					rodrpup.setDejadoPUP(resultSet.getInt("DEJADOPUP"));
 					rodrpup.setRecolectadoPUP(resultSet.getInt("RECOLECTADOPUP"));
-					rodrpup.setCantidadStatus(resultSet.getInt("CANTIDAD_ESTATUS"));
 					listaPremiosUnitarios.add(rodrpup);
 				}
 				resultSet.close();
