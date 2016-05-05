@@ -156,10 +156,12 @@ public class OrdenesDejadasRecolectadas {
 					rodrpup.setZona(resultSet.getInt("ZONA"));
 					rodrpup.setCampania(resultSet.getString("CAMPANIA"));
 					rodrpup.setOrden(resultSet.getLong("ORDEN"));
+					rodrpup.setNombre(resultSet.getString("NOMBRE"));
 					rodrpup.setRegistro(resultSet.getLong("REGISTRO"));
 					rodrpup.setItem(resultSet.getString("ITEM"));
 					rodrpup.setCodigoBarras(resultSet.getString("CODIGO_BARRAS"));
 					rodrpup.setDejadoPUP(resultSet.getInt("DEJADO_EN_PUP"));
+					rodrpup.setRecolectadoPUP(resultSet.getInt("RECOLECTADO_EN_PUP"));
 					listaCajas.add(rodrpup);
 				}
 				resultSet.close();
@@ -202,6 +204,8 @@ public class OrdenesDejadasRecolectadas {
 					rodrpup.setFsc(resultSet.getString("FSC"));
 					rodrpup.setEan13(resultSet.getString("EAN13"));
 					rodrpup.setCantidad(resultSet.getInt("CANTIDAD"));
+					rodrpup.setDejadoPUP(resultSet.getInt("DEJADOPUP"));
+					rodrpup.setRecolectadoPUP(resultSet.getInt("RECOLECTADOPUP"));
 					rodrpup.setCantidadStatus(resultSet.getInt("CANTIDAD_ESTATUS"));
 					listaPremiosUnitarios.add(rodrpup);
 				}
@@ -230,7 +234,7 @@ public class OrdenesDejadasRecolectadas {
 				callableStatement = connection
 						.prepareCall("{call SP_OBTENER_REPORTE_ORDENES_DEJADAS_RECOLECTADAS_PUP(?,?,?,?)}");
 				callableStatement.setObject("DETALLE",
-						1, Types.INTEGER);
+						3, Types.INTEGER);
 				callableStatement.setObject("ID_SALIDA_REPARTO",
 						idSalidaReparto, Types.BIGINT);
 				callableStatement.setObject("ID_PUP",
@@ -245,8 +249,10 @@ public class OrdenesDejadasRecolectadas {
 					rodrpup.setRegistro(resultSet.getLong("REGISTRO"));
 					rodrpup.setCodEnviado(resultSet.getInt("CODENVIADO"));
 					rodrpup.setCodRecibido(resultSet.getInt("CODRECIBIDO"));
+					rodrpup.setCodRecolectado(resultSet.getInt("CODRECOLECTADO"));
 					rodrpup.setRemitoEnviado(resultSet.getInt("REMITOENVIADO"));
 					rodrpup.setRemitoRecibido(resultSet.getInt("REMITORECIBIDO"));
+					rodrpup.setRemitoRecolectado(resultSet.getInt("REMITORECOLECTADO"));
 					listaDocumentos.add(rodrpup);
 				}
 				resultSet.close();
