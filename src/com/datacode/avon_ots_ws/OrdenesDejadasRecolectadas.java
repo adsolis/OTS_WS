@@ -44,7 +44,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						" ",
 						"M1",
-						"Surgió un error al obtener la lista de liquidaciones a enviar : obtenerListaLiquidacionesMail",
+						"SurgiÃ³ un error al obtener la lista de liquidaciones a enviar : obtenerListaLiquidacionesMail",
 						ex.getMessage(), 1);
 				System.out.println(ex.getMessage());
 			} finally {
@@ -79,7 +79,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						" ",
 						"M1",
-						"Surgió un error al actualizar el status de la lista de liquidaciones a enviar : actualizarStatusLiquidacionesMail",
+						"SurgiÃ³ un error al actualizar el status de la lista de liquidaciones a enviar : actualizarStatusLiquidacionesMail",
 						ex.getMessage(), 1);
 				System.out.println(ex.getMessage());
 				error = ex.getStackTrace().toString();
@@ -121,7 +121,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgió un error al obtener las ordenes dejadas/recolectadas en PUP. Método: obtenerPUPOrdenesDejadasRecolectadas",
+						"SurgiÃ³ un error al obtener las ordenes dejadas/recolectadas en PUP. MÃ©todo: obtenerPUPOrdenesDejadasRecolectadas",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			} finally {
@@ -169,7 +169,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgió un error al obtener las cajas de una orden dejada/recolectada en PUP. Método: obtenerCajasOrdenDejadaRecolectada",
+						"SurgiÃ³ un error al obtener las cajas de una orden dejada/recolectada en PUP. MÃ©todo: obtenerCajasOrdenDejadaRecolectada",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			} finally {
@@ -214,7 +214,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgió un error al obtener los premios & unitarios de una orden dejada/recolectada en PUP. Método: obtenerPremiosUnitariosOrdenDejadaRecolectada",
+						"SurgiÃ³ un error al obtener los premios & unitarios de una orden dejada/recolectada en PUP. MÃ©todo: obtenerPremiosUnitariosOrdenDejadaRecolectada",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			} finally {
@@ -260,7 +260,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgió un error al obtener los documentos de una orden dejada/recolectada en PUP. Método: obtenerDocumentosOrdenDejadaRecolectada",
+						"SurgiÃ³ un error al obtener los documentos de una orden dejada/recolectada en PUP. MÃ©todo: obtenerDocumentosOrdenDejadaRecolectada",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			} finally {
