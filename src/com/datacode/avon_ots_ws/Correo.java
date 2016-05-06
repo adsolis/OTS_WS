@@ -16,6 +16,7 @@ import javax.mail.util.ByteArrayDataSource;
 
 import com.datacode.avon_ots_ws.model.Archivo;
 import com.datacode.avon_ots_ws.model.DatosCorreo;
+import com.datacode.avon_ots_ws.model.LiquidacionRepartoDTO;
 import com.datacode.avon_ots_ws.model.ModelCorreoNoEnviado;
 
 /**
@@ -270,7 +271,7 @@ public class Correo {
 		return idReporte;
 	}
 
-	public List<Integer> obtenerListaLiquidacionesMail() {
+	/*public List<Integer> obtenerListaLiquidacionesMail() {
 		connection = AccesoBD.AbrirConexionOTS();
 		List<Integer> listaLiq = new ArrayList<Integer>();
 		if (connection != null) {
@@ -296,9 +297,75 @@ public class Correo {
 			}
 		}
 		return listaLiq;
+	}*/
+	
+	public List<LiquidacionRepartoDTO> obtenerListaLiquidacionesMail() {
+		connection = AccesoBD.AbrirConexionOTS();
+		List<LiquidacionRepartoDTO> listaLiq = new ArrayList<LiquidacionRepartoDTO>();
+		if (connection != null) {
+			try {
+				callableStatement = connection
+						.prepareCall("{call SP_Obtener_Lista_Liquidaciones_Mail}");
+				resultSet = AccesoBD
+						.executeRetrieveResultSet(callableStatement);
+				while (resultSet.next()) {
+					LiquidacionRepartoDTO lr = new LiquidacionRepartoDTO();
+					lr.setIdSalidaReparto(resultSet.getInt("ID_SALIDA_REPARTO"));
+					lr.setEstatusCorreo(resultSet.getString("ESTATUS_CORREO"));
+					lr.setEstatusCorreoDejadasPUP(resultSet.getString("ESTATUS_CORREO_DEJADAS_PUP"));
+					lr.setEstatusCorreoRecolectadasPUP(resultSet.getString("ESTATUS_CORREO_RECOLECTADAS_PUP"));
+					listaLiq.add(lr);
+				}
+				resultSet.close();
+			} catch (SQLException ex) {
+				Utils.GuardarLogMensajeBD(
+						" ",
+						"M1",
+						"Surgió un error al obtener la lista de liquidaciones a enviar : obtenerListaLiquidacionesMail",
+						ex.getMessage(), 1);
+				System.out.println(ex.getMessage());
+			} finally {
+				AccesoBD.CerrarStatement(callableStatement);
+				AccesoBD.CerrarConexion(connection);
+			}
+		}
+		return listaLiq;
+	}
+	
+	public String actualizarStatusLiquidacionesMail(String statusNuevo,
+			int idSalidaReparto, String tipoLiquidacion) {
+		connection = AccesoBD.AbrirConexionOTS();
+		String error = "";
+		if (connection != null) {
+			try {
+				callableStatement = connection
+					.prepareCall("{call SP_Actualizar_Status_Liquidaciones_Mail(?,?,?)}");
+				
+				callableStatement.setObject("@@TIPO_LIQUIDACION",
+						Integer.valueOf(idSalidaReparto), Types.INTEGER);
+				callableStatement.setObject("@P_STATUS",
+						idSalidaReparto, Types.VARCHAR);
+				callableStatement.setObject("P_ID_SALIDA_REPARTO",
+						idSalidaReparto, Types.INTEGER);
+				
+				callableStatement.execute();
+			} catch (SQLException ex) {
+				Utils.GuardarLogMensajeBD(
+						" ",
+						"M1",
+						"Surgió un error al actualizar el status de la lista de liquidaciones a enviar : actualizarStatusLiquidacionesMail",
+						ex.getMessage(), 1);
+				System.out.println(ex.getMessage());
+				error = ex.getStackTrace().toString();
+			} finally {
+				AccesoBD.CerrarStatement(callableStatement);
+				AccesoBD.CerrarConexion(connection);
+			}
+		}
+		return error;
 	}
 
-	public String actualizarStatusLiquidacionesMail(String statusNuevO,
+	/*public String actualizarStatusLiquidacionesMail(String statusNuevo,
 			int idSalidaReparto) {
 		connection = AccesoBD.AbrirConexionOTS();
 		String error = "";
@@ -330,7 +397,7 @@ public class Correo {
 			}
 		}
 		return error;
-	}
+	}*/
 
 	/*public String actualizarStatusLiquidacionesMail(String statusNuevo,
 			int idSalidaReparto) {

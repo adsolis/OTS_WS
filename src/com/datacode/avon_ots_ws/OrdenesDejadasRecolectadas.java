@@ -22,7 +22,7 @@ public class OrdenesDejadasRecolectadas {
 	
 	public OrdenesDejadasRecolectadas() {}
 	
-	public List<LiquidacionRepartoDTO> obtenerListaLiquidacionesMail() {
+	/*public List<LiquidacionRepartoDTO> obtenerListaLiquidacionesMail() {
 		connection = AccesoBD.AbrirConexionOTS();
 		List<LiquidacionRepartoDTO> listaLiq = new ArrayList<LiquidacionRepartoDTO>();
 		if (connection != null) {
@@ -53,9 +53,9 @@ public class OrdenesDejadasRecolectadas {
 			}
 		}
 		return listaLiq;
-	}
+	}*/
 
-	public String actualizarStatusLiquidacionesMail(String statusNuevo,
+	/*public String actualizarStatusLiquidacionesMail(String statusNuevo,
 			int idSalidaReparto, String tipoLiquidacion) {
 		connection = AccesoBD.AbrirConexionOTS();
 		String error = "";
@@ -89,7 +89,7 @@ public class OrdenesDejadasRecolectadas {
 			}
 		}
 		return error;
-	}
+	}*/
 
 	
 	public List<PUPDTO> obtenerPUPOrdenesDejadasRecolectadas(String tipoLiquidacion, long idSalidaReparto,int idEstatus, int idUsuario) {
