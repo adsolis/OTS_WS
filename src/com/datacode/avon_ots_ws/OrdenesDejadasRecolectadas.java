@@ -93,11 +93,9 @@ public class OrdenesDejadasRecolectadas {
 
 	
 	public List<PUPDTO> obtenerPUPOrdenesDejadasRecolectadas(String tipoLiquidacion, long idSalidaReparto,int idEstatus, int idUsuario) {
-		System.out.println("si entra aqui");
 		connection = AccesoBD.AbrirConexionOTS();
 		List<PUPDTO> resultado = new ArrayList<PUPDTO>();
 		PUPDTO res = null;
-		System.out.println("Llego aqui");
 		if (connection != null) {
 			try {
 				callableStatement = connection
@@ -120,15 +118,13 @@ public class OrdenesDejadasRecolectadas {
 					System.out.println(res.getCorreo());
 				}
 				resultSet.close();
-			} /*catch (SQLException ex) {
+			} catch (SQLException ex) {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
 						"Surgió un error al obtener las ordenes dejadas/recolectadas en PUP. Método: obtenerPUPOrdenesDejadasRecolectadas",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
-			}*/ catch(Exception e) {
-				System.out.println("pues esta ezepzion: " + e.getMessage());
 			}
 			finally {
 				AccesoBD.CerrarStatement(callableStatement);
