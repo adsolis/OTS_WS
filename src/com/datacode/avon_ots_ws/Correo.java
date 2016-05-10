@@ -341,14 +341,16 @@ public class Correo {
 				callableStatement = connection
 					.prepareCall("{call SP_Actualizar_Status_Liquidaciones_Mail(?,?,?)}");
 				
-				callableStatement.setObject("@@TIPO_LIQUIDACION",
-						Integer.valueOf(idSalidaReparto), Types.INTEGER);
-				callableStatement.setObject("@P_STATUS",
-						idSalidaReparto, Types.VARCHAR);
+				callableStatement.setObject("TIPO_LIQUIDACION",
+						Integer.valueOf(tipoLiquidacion), Types.INTEGER);
+				callableStatement.setObject("P_STATUS",
+						statusNuevo, Types.VARCHAR);
 				callableStatement.setObject("P_ID_SALIDA_REPARTO",
 						idSalidaReparto, Types.INTEGER);
 				
 				callableStatement.execute();
+				AccesoBD.CerrarStatement(callableStatement);
+				AccesoBD.CerrarConexion(connection);
 			} catch (SQLException ex) {
 				Utils.GuardarLogMensajeBD(
 						" ",
@@ -357,6 +359,8 @@ public class Correo {
 						ex.getMessage(), 1);
 				System.out.println(ex.getMessage());
 				error = ex.getStackTrace().toString();
+				AccesoBD.CerrarStatement(callableStatement);
+				AccesoBD.CerrarConexion(connection);
 			} finally {
 				AccesoBD.CerrarStatement(callableStatement);
 				AccesoBD.CerrarConexion(connection);

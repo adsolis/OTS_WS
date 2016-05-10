@@ -93,38 +93,44 @@ public class OrdenesDejadasRecolectadas {
 
 	
 	public List<PUPDTO> obtenerPUPOrdenesDejadasRecolectadas(String tipoLiquidacion, long idSalidaReparto,int idEstatus, int idUsuario) {
+		System.out.println("si entra aqui");
 		connection = AccesoBD.AbrirConexionOTS();
 		List<PUPDTO> resultado = new ArrayList<PUPDTO>();
 		PUPDTO res = null;
-
+		System.out.println("Llego aqui");
 		if (connection != null) {
 			try {
 				callableStatement = connection
 						.prepareCall("{call SP_CONSULTAR_ORDENES_DEJADAS_RECOLECTADAS_PUP(?,?)}");
 				callableStatement.setObject("ID_SALIDA_REPARTO",
-						idSalidaReparto, Types.INTEGER);
+						idSalidaReparto, Types.BIGINT);
 				callableStatement.setObject("ID_ESTATUS",
 						idEstatus, Types.INTEGER);
 				resultSet = AccesoBD
 						.executeRetrieveResultSet(callableStatement);
 
+				System.out.println("ya ejecuto");
 				while (resultSet.next()) {
 					res = new PUPDTO();
 
 					res.setIdPUP(resultSet.getInt("ID_PUP"));
-					res.setCorreo(resultSet.getString("ID_CORREO"));
+					res.setCorreo(resultSet.getString("CORREO"));
 
 					resultado.add(res);
+					System.out.println(res.getCorreo());
 				}
 				resultSet.close();
-			} catch (SQLException ex) {
+			} /*catch (SQLException ex) {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
 						"Surgió un error al obtener las ordenes dejadas/recolectadas en PUP. Método: obtenerPUPOrdenesDejadasRecolectadas",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
-			} finally {
+			}*/ catch(Exception e) {
+				System.out.println("pues esta ezepzion: " + e.getMessage());
+			}
+			finally {
 				AccesoBD.CerrarStatement(callableStatement);
 				AccesoBD.CerrarConexion(connection);
 			}
@@ -160,8 +166,12 @@ public class OrdenesDejadasRecolectadas {
 					rodrpup.setRegistro(resultSet.getLong("REGISTRO"));
 					rodrpup.setItem(resultSet.getString("ITEM"));
 					rodrpup.setCodigoBarras(resultSet.getString("CODIGO_BARRAS"));
-					rodrpup.setDejadoPUP(resultSet.getInt("DEJADO_EN_PUP"));
-					rodrpup.setRecolectadoPUP(resultSet.getInt("RECOLECTADO_EN_PUP"));
+					
+					if(idEstatus==22)
+						rodrpup.setDejadoPUP(resultSet.getInt("DEJADOPUP"));
+					else if(idEstatus==24)
+						rodrpup.setRecolectadoPUP(resultSet.getInt("RECOLECTADOPUP"));
+					
 					listaCajas.add(rodrpup);
 				}
 				resultSet.close();
@@ -204,8 +214,12 @@ public class OrdenesDejadasRecolectadas {
 					rodrpup.setFsc(resultSet.getString("FSC"));
 					rodrpup.setEan13(resultSet.getString("EAN13"));
 					rodrpup.setCantidad(resultSet.getInt("CANTIDAD"));
-					rodrpup.setDejadoPUP(resultSet.getInt("DEJADOPUP"));
-					rodrpup.setRecolectadoPUP(resultSet.getInt("RECOLECTADOPUP"));
+					
+					if(idEstatus==22)
+						rodrpup.setDejadoPUP(resultSet.getInt("DEJADOPUP"));
+					else if(idEstatus==24)
+						rodrpup.setRecolectadoPUP(resultSet.getInt("RECOLECTADOPUP"));
+					
 					listaPremiosUnitarios.add(rodrpup);
 				}
 				resultSet.close();

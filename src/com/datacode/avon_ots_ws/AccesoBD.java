@@ -67,10 +67,12 @@ public class AccesoBD {
 				// meta.getDatabaseProductVersion());
 				// }
 			} catch (ClassNotFoundException ex) {
+				System.out.println(ex.getMessage());
 				AccesoArchivos
 						.GuardaArchivoLog("Error al establecer conexión a la base de datos: "
 								+ ex.getMessage());
 			} catch (SQLException ex) {
+				System.out.println(ex.getMessage()); 
 				AccesoArchivos
 						.GuardaArchivoLog("Error al establecer conexión a la base de datos: "
 								+ ex.getMessage());

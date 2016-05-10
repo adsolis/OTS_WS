@@ -144,7 +144,7 @@ public class AccesoArchivos {
 
 			try{
 				// Create file 
-				FileWriter fstream = new FileWriter(ruta + "\\AvonWsLog.txt", true);
+				FileWriter fstream = new FileWriter(ruta + "/AvonWsLog.txt", true);
 				BufferedWriter out = new BufferedWriter(fstream);
 				out.write(Utils.ObtenerFechaActual(Utils.formatoFechaCortaHoraLarga) + " - " +  texto);
 				out.newLine();
