@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 
 import com.datacode.avon_ots_ws.model.CajaOrdenDejadaRecolectadaPUPDTO;
 import com.datacode.avon_ots_ws.model.DocumentoOrdenDejadaRecolectadaPUPDTO;
-import com.datacode.avon_ots_ws.model.LiquidacionRepartoDTO;
 import com.datacode.avon_ots_ws.model.PUPDTO;
 import com.datacode.avon_ots_ws.model.PremioUnitarioOrdenDejadaRecolectadaPUPDTO;
 
@@ -21,76 +20,6 @@ public class OrdenesDejadasRecolectadas {
 	private Connection connection;
 	
 	public OrdenesDejadasRecolectadas() {}
-	
-	/*public List<LiquidacionRepartoDTO> obtenerListaLiquidacionesMail() {
-		connection = AccesoBD.AbrirConexionOTS();
-		List<LiquidacionRepartoDTO> listaLiq = new ArrayList<LiquidacionRepartoDTO>();
-		if (connection != null) {
-			try {
-				callableStatement = connection
-						.prepareCall("{call SP_Obtener_Lista_Liquidaciones_Mail}");
-				resultSet = AccesoBD
-						.executeRetrieveResultSet(callableStatement);
-				while (resultSet.next()) {
-					LiquidacionRepartoDTO lr = new LiquidacionRepartoDTO();
-					lr.setIdSalidaReparto(resultSet.getInt("ID_SALIDA_REPARTO"));
-					lr.setEstatusCorreo(resultSet.getString("ESTATUS_CORREO"));
-					lr.setEstatusCorreoDejadasPUP(resultSet.getString("ESTATUS_CORREO_DEJADAS_PUP"));
-					lr.setEstatusCorreoRecolectadasPUP(resultSet.getString("ESTATUS_CORREO_RECOLECTADAS_PUP"));
-					listaLiq.add(lr);
-				}
-				resultSet.close();
-			} catch (SQLException ex) {
-				Utils.GuardarLogMensajeBD(
-						" ",
-						"M1",
-						"Surgi√≥ un error al obtener la lista de liquidaciones a enviar : obtenerListaLiquidacionesMail",
-						ex.getMessage(), 1);
-				System.out.println(ex.getMessage());
-			} finally {
-				AccesoBD.CerrarStatement(callableStatement);
-				AccesoBD.CerrarConexion(connection);
-			}
-		}
-		return listaLiq;
-	}*/
-
-	/*public String actualizarStatusLiquidacionesMail(String statusNuevo,
-			int idSalidaReparto, String tipoLiquidacion) {
-		connection = AccesoBD.AbrirConexionOTS();
-		String error = "";
-		if (connection != null) {
-			try {
-				callableStatement = connection
-					.prepareCall("{call SP_Actualizar_Status_Liquidaciones_Mail(?,?)}");
-				if (tipoLiquidacion.equals("subBodega")) {
-					callableStatement.setObject("P_STATUS_NUEVO", statusNuevo,
-							Types.VARCHAR);
-				} else if (tipoLiquidacion.equals("ordenesDejadas")) {
-					callableStatement.setObject("ESTATUS_CORREO_DEJADAS_PUP", statusNuevo,
-							Types.VARCHAR);
-				} else if (tipoLiquidacion.equals("ordenesRecolectadas")) {
-					callableStatement.setObject("ESTATUS_CORREO_RECOLECTADAS_PUP ", statusNuevo,
-							Types.VARCHAR);
-				}
-				callableStatement.setObject("P_ID_SALIDA_REPARTO",
-						idSalidaReparto, Types.INTEGER);
-			} catch (SQLException ex) {
-				Utils.GuardarLogMensajeBD(
-						" ",
-						"M1",
-						"Surgi√≥ un error al actualizar el status de la lista de liquidaciones a enviar : actualizarStatusLiquidacionesMail",
-						ex.getMessage(), 1);
-				System.out.println(ex.getMessage());
-				error = ex.getStackTrace().toString();
-			} finally {
-				AccesoBD.CerrarStatement(callableStatement);
-				AccesoBD.CerrarConexion(connection);
-			}
-		}
-		return error;
-	}*/
-
 	
 	public List<PUPDTO> obtenerPUPOrdenesDejadasRecolectadas(String tipoLiquidacion, long idSalidaReparto,int idEstatus, int idUsuario) {
 		connection = AccesoBD.AbrirConexionOTS();
@@ -113,6 +42,7 @@ public class OrdenesDejadasRecolectadas {
 
 					res.setIdPUP(resultSet.getInt("ID_PUP"));
 					res.setCorreo(resultSet.getString("CORREO"));
+					res.setNombre(resultSet.getString("NOMBRE"));
 
 					resultado.add(res);
 					System.out.println(res.getCorreo());
@@ -122,7 +52,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgi√≥ un error al obtener las ordenes dejadas/recolectadas en PUP. M√©todo: obtenerPUPOrdenesDejadasRecolectadas",
+						"SurgiÛ un error al obtener las ordenes dejadas/recolectadas en PUP. MÈtodo: obtenerPUPOrdenesDejadasRecolectadas",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			}
@@ -175,7 +105,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgi√≥ un error al obtener las cajas de una orden dejada/recolectada en PUP. M√©todo: obtenerCajasOrdenDejadaRecolectada",
+						"SurgiÛ un error al obtener las cajas de una orden dejada/recolectada en PUP. MÈtodo: obtenerCajasOrdenDejadaRecolectada",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			} finally {
@@ -223,7 +153,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgi√≥ un error al obtener los premios & unitarios de una orden dejada/recolectada en PUP. M√©todo: obtenerPremiosUnitariosOrdenDejadaRecolectada",
+						"SurgiÛ un error al obtener los premios & unitarios de una orden dejada/recolectada en PUP. MÈtodo: obtenerPremiosUnitariosOrdenDejadaRecolectada",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			} finally {
@@ -269,7 +199,7 @@ public class OrdenesDejadasRecolectadas {
 				Utils.GuardarLogMensajeBD(
 						"ReportesAdmin",
 						"M4",
-						"Surgi√≥ un error al obtener los documentos de una orden dejada/recolectada en PUP. M√©todo: obtenerDocumentosOrdenDejadaRecolectada",
+						"SurgiÛ un error al obtener los documentos de una orden dejada/recolectada en PUP. MÈtodo: obtenerDocumentosOrdenDejadaRecolectada",
 						ex.getMessage(), idUsuario);
 				System.out.println(ex.getMessage());
 			} finally {
